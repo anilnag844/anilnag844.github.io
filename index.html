@@ -137,6 +137,14 @@
   .edu-card h3{font-family:var(--display);font-size:1.22rem;font-weight:600;margin-bottom:3px}
   .edu-card .place{font-family:var(--mono);font-size:12.5px;color:var(--faint);line-height:1.9}
   .edu-card .yr{font-family:var(--mono);font-size:12.5px;color:var(--accent);white-space:nowrap}
+  .certs-label{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin:32px 0 14px}
+  .certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:12px}
+  .cert-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 18px;display:flex;flex-direction:column;gap:10px;transition:border-color .25s,transform .25s}
+  .cert-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+  .cert-icon{width:34px;height:34px;display:flex;align-items:center;justify-content:center;color:var(--accent)}
+  .cert-icon img{width:28px;height:28px;display:block}
+  .cert-name{font-size:.93rem;font-weight:600;color:var(--text);line-height:1.35}
+  .cert-meta{font-family:var(--mono);font-size:10.5px;color:var(--faint);line-height:1.6}
 
   #contact{text-align:center}
   #contact h2{margin-bottom:18px}
@@ -371,12 +379,39 @@
       </div>
       <div class="yr">2012</div>
     </div>
-    <div class="edu-card reveal">
-      <div>
-        <h3>Certifications</h3>
-        <div class="place">GitHub Copilot L3 &amp; L2 (Wipro AI Academy, 2025) &middot; ACE Foundation Level Architect (Wipro, 2024)<br>ISTQB Certified Tester &mdash; Foundation Level &middot; Testim Fundamentals (Tricentis)</div>
+    <div class="certs-label reveal">Certifications</div>
+    <div class="certs-grid reveal">
+
+      <div class="cert-card">
+        <div class="cert-icon"><img src="https://cdn.simpleicons.org/github" loading="lazy" alt="GitHub"></div>
+        <div class="cert-name">GitHub Copilot L3</div>
+        <div class="cert-meta">Wipro AI Academy · 2025</div>
       </div>
-      <div class="yr">2024&ndash;25</div>
+
+      <div class="cert-card">
+        <div class="cert-icon"><img src="https://cdn.simpleicons.org/github" loading="lazy" alt="GitHub"></div>
+        <div class="cert-name">GitHub Copilot L2</div>
+        <div class="cert-meta">Wipro AI Academy · 2025</div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <div class="cert-name">ACE Foundation Architect</div>
+        <div class="cert-meta">Wipro · 2024</div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="cert-name">ISTQB Certified Tester</div>
+        <div class="cert-meta">Foundation Level · ISTQB</div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <div class="cert-name">Testim Fundamentals</div>
+        <div class="cert-meta">Tricentis</div>
+      </div>
+
     </div>
   </div>
 </section>
