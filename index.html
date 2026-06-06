@@ -99,8 +99,9 @@
   .skill-cat:hover{background:var(--bg-2)}
   .skill-cat h3{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:16px;font-weight:600}
   .tags{display:flex;flex-wrap:wrap;gap:8px}
-  .tag{font-size:13px;color:var(--muted);background:var(--bg);border:1px solid var(--line);padding:5px 11px;border-radius:20px;transition:all .2s;cursor:default}
+  .tag{font-size:13px;color:var(--muted);background:var(--bg);border:1px solid var(--line);padding:5px 11px;border-radius:20px;transition:all .2s;cursor:default;display:inline-flex;align-items:center;gap:6px}
   .tag:hover{color:var(--text);border-color:var(--accent-dim);transform:translateY(-2px)}
+  .tag img{width:15px;height:15px;flex-shrink:0;display:block}
 
   .timeline{position:relative;padding-left:34px}
   .timeline::before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:1px;background:var(--line)}
@@ -409,6 +410,51 @@
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   addEventListener('load',()=>document.querySelectorAll('header .reveal').forEach((el,i)=>setTimeout(()=>el.classList.add('in'),120+i*100)));
   document.getElementById('year').textContent=new Date().getFullYear();
+  (function(){
+    const map={
+      'TypeScript':'typescript',
+      'JavaScript (ES6+)':'javascript',
+      'Python':'python',
+      'Java':'java',
+      'Node.js':'nodedotjs',
+      'Playwright v1.52+':'playwright',
+      'Selenium WebDriver':'selenium',
+      'Appium':'appium',
+      'Cucumber BDD':'cucumber',
+      'GitHub Actions':'githubactions',
+      'Jenkins':'jenkins',
+      'CircleCI':'circleci',
+      'GitLab CI':'gitlab',
+      'Docker':'docker',
+      'Git':'git',
+      'Amazon Bedrock':'amazonaws',
+      'AWS Bedrock':'amazonaws',
+      'AWS Lambda':'awslambda',
+      'Azure DevOps':'microsoftazure',
+      'Postman':'postman',
+      'GraphQL':'graphql',
+      'K6':'k6',
+      'Jira':'jira',
+      'Confluence':'confluence',
+      'MongoDB':'mongodb',
+      'PostgreSQL':'postgresql',
+      'MySQL':'mysql',
+      'Flutter (iOS/Android)':'flutter',
+      'GitHub Copilot':'github',
+      'Claude Sonnet':'anthropic',
+      'Playwright HTML':'playwright',
+      'Playwright v1.52':'playwright',
+    };
+    document.querySelectorAll('.tag').forEach(tag=>{
+      const slug=map[tag.textContent.trim()];
+      if(!slug) return;
+      const img=document.createElement('img');
+      img.src=`https://cdn.simpleicons.org/${slug}`;
+      img.width=15; img.height=15; img.loading='lazy';
+      img.onerror=()=>img.remove();
+      tag.prepend(img);
+    });
+  })();
   (function(){
     const phrases=['Senior Software Engineer in Test | Automation Architect'];
     const el=document.querySelector('.tw-text');
