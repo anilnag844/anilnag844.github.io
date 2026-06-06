@@ -58,6 +58,9 @@
   .eyebrow .bar{width:32px;height:1px;background:var(--accent)}
   h1{font-family:var(--display);font-weight:600;font-size:clamp(2.6rem,7.5vw,5.2rem);line-height:1.03;letter-spacing:-.02em;margin-bottom:28px}
   h1 em{font-style:italic;color:var(--accent)}
+  .typewriter-wrap{font-family:var(--mono);font-size:clamp(1rem,2vw,1.2rem);color:var(--accent);margin-bottom:28px;margin-top:-10px;min-height:1.6em}
+  .tw-cursor{animation:blink .7s step-end infinite}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
   .lede{font-size:clamp(1.05rem,2vw,1.28rem);color:var(--muted);max-width:700px;font-weight:300;margin-bottom:38px}
   .lede strong{color:var(--text);font-weight:500}
   .hero-stats{display:flex;gap:38px;flex-wrap:wrap;margin-bottom:40px}
@@ -181,6 +184,7 @@
       <div class="hero-text">
         <div class="eyebrow reveal"><span class="bar"></span>Principal QE Architect &middot; AI-Driven Quality Engineering &middot; Las Vegas, NV</div>
         <h1 class="reveal">Hi, I'm Anil.<br>I teach machines <em>to test.</em></h1>
+        <div class="typewriter-wrap reveal"><span class="tw-prefix">A </span><span class="tw-text"></span><span class="tw-cursor">|</span></div>
         <p class="lede reveal">A <strong>Principal QE Architect</strong> leading AI-Driven Lifecycle (AI-DLC) initiatives at MGM Resorts. I built the organization's first <strong>natural-language test-automation platform</strong> &mdash; describe a QE task in plain English and it validates requirements, generates test cases, writes Playwright scripts, and runs them. Powered by AWS Bedrock + Claude, MCP servers, and TypeScript.</p>
         <div class="hero-stats reveal">
           <div class="stat"><div class="n">12+</div><div class="l">Years in QE</div></div>
@@ -405,6 +409,20 @@
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   addEventListener('load',()=>document.querySelectorAll('header .reveal').forEach((el,i)=>setTimeout(()=>el.classList.add('in'),120+i*100)));
   document.getElementById('year').textContent=new Date().getFullYear();
+  (function(){
+    const phrases=['Principal QE Architect','AI-Driven Testing Leader','Test Automation Architect','Quality Engineering Pioneer','Playwright & AWS Bedrock Expert'];
+    const el=document.querySelector('.tw-text');
+    let pi=0,ci=0,deleting=false;
+    function tick(){
+      const word=phrases[pi];
+      el.textContent=deleting?word.slice(0,--ci):word.slice(0,++ci);
+      let delay=deleting?55:90;
+      if(!deleting&&ci===word.length){delay=1800;deleting=true;}
+      else if(deleting&&ci===0){deleting=false;pi=(pi+1)%phrases.length;delay=300;}
+      setTimeout(tick,delay);
+    }
+    setTimeout(tick,1200);
+  })();
 </script>
 </body>
 </html>
