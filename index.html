@@ -150,6 +150,13 @@
   .cert-name{font-size:.93rem;font-weight:600;color:var(--text);line-height:1.35}
   .cert-meta{font-family:var(--mono);font-size:10.5px;color:var(--faint);line-height:1.6}
 
+  .articles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px}
+  .article-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:26px;display:flex;flex-direction:column;gap:12px;transition:border-color .25s,transform .25s;text-decoration:none;color:inherit}
+  .article-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+  .article-topic{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent)}
+  .article-title{font-family:var(--display);font-size:1.12rem;font-weight:600;line-height:1.35;color:var(--text)}
+  .article-desc{font-size:.9rem;color:var(--muted);line-height:1.6;flex:1}
+  .article-cta{font-family:var(--mono);font-size:12px;color:var(--accent-dim);margin-top:4px}
   #contact{text-align:center}
   #contact h2{margin-bottom:18px}
   .contact-sub{color:var(--muted);max-width:520px;margin:0 auto 36px}
@@ -184,6 +191,7 @@
       <a href="#experience">Experience</a>
       <a href="#work">Work</a>
       <a href="#education">Education</a>
+      <a href="#writing">Writing</a>
       <a href="#contact">Contact</a>
       <a href="resume.pdf" class="nav-resume" target="_blank">Resume &#8599;</a>
     </div>
@@ -426,10 +434,42 @@
   </div>
 </section>
 
+<!-- ============ WRITING ============ -->
+<section id="writing">
+  <div class="wrap">
+    <div class="section-tag reveal"><span class="num">06 &mdash;</span> Writing &amp; Talks</div>
+    <h2 class="reveal">Sharing what I learn</h2>
+    <div class="articles-grid reveal">
+
+      <a class="article-card" href="https://www.linkedin.com/in/anilkumarnag/" target="_blank" rel="noopener">
+        <div class="article-topic">AI Testing</div>
+        <div class="article-title">Scaling AI-Driven Test Automation Across 18 Product Teams</div>
+        <div class="article-desc">How we built an enterprise natural-language QA platform at MGM Resorts using AWS Bedrock, Claude, and MCP servers — and what we learned scaling it across 18 digital product teams.</div>
+        <div class="article-cta">Read on LinkedIn &#8599;</div>
+      </a>
+
+      <a class="article-card" href="https://www.linkedin.com/in/anilkumarnag/" target="_blank" rel="noopener">
+        <div class="article-topic">Architecture</div>
+        <div class="article-title">Playwright + TypeScript at Scale: Architecture Decisions That Matter</div>
+        <div class="article-desc">Lessons from designing a multi-layer Playwright framework with shared API clients, 60+ npm scripts, and Page Object Model patterns that actually survive real-world team growth.</div>
+        <div class="article-cta">Read on LinkedIn &#8599;</div>
+      </a>
+
+      <a class="article-card" href="https://www.linkedin.com/in/anilkumarnag/" target="_blank" rel="noopener">
+        <div class="article-topic">AI-DLC</div>
+        <div class="article-title">From Manual to AI-DLC: Transforming the QE Lifecycle with Generative AI</div>
+        <div class="article-desc">A practical walkthrough of the AI-Driven Lifecycle framework — how plain-English commands now validate requirements, generate test cases, write Playwright scripts, and run them end-to-end.</div>
+        <div class="article-cta">Read on LinkedIn &#8599;</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
 <!-- ============ CONTACT ============ -->
 <section id="contact">
   <div class="wrap">
-    <div class="section-tag reveal" style="justify-content:center"><span class="num">06 &mdash;</span> Contact</div>
+    <div class="section-tag reveal" style="justify-content:center"><span class="num">07 &mdash;</span> Contact</div>
     <h2 class="reveal">Let's talk quality.</h2>
     <p class="contact-sub reveal">Open to conversations on AI-driven quality engineering, QE platform architecture, and test-automation leadership. Reach out.</p>
     <a href="mailto:anilnag844@gmail.com" class="contact-mail reveal">anilnag844@gmail.com</a>
