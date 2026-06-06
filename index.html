@@ -411,6 +411,29 @@
   addEventListener('load',()=>document.querySelectorAll('header .reveal').forEach((el,i)=>setTimeout(()=>el.classList.add('in'),120+i*100)));
   document.getElementById('year').textContent=new Date().getFullYear();
   (function(){
+    function animateCount(el){
+      const raw=el.textContent.trim();
+      const m=raw.match(/^([+]?)(\d+)([+%]?)$/);
+      if(!m) return;
+      const [,pre,num,suf]=m, target=+num, dur=1400, t0=performance.now();
+      (function tick(now){
+        const p=Math.min((now-t0)/dur,1), ease=1-Math.pow(1-p,3);
+        el.textContent=pre+Math.round(ease*target)+suf;
+        if(p<1) requestAnimationFrame(tick);
+        else el.textContent=raw;
+      })(t0);
+    }
+    const seen=new Set();
+    const cio=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(!e.isIntersecting||seen.has(e.target)) return;
+        seen.add(e.target);
+        e.target.querySelectorAll('.n').forEach(animateCount);
+      });
+    },{threshold:0.3});
+    document.querySelectorAll('.hero-stats,.proj-metrics').forEach(el=>cio.observe(el));
+  })();
+  (function(){
     const map={
       'TypeScript':'typescript',
       'JavaScript (ES6+)':'javascript',
