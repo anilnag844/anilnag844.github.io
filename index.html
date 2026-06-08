@@ -543,7 +543,7 @@
       'Docker':'docker',
       'Git':'git',
       'Amazon Bedrock':'amazonaws',
-      'AWS Bedrock':'amazonaws',
+      'AWS Bedrock':'amazonwebservices',
       'AWS Lambda':'awslambda',
       'Azure DevOps':'microsoftazure',
       'Postman':'postman',
@@ -575,6 +575,7 @@
       'Ajv':'✔️','OAuth 2.0':'🔐','Multi-Env (Dev/QA/UAT/PreProd)':'🌍',
       'Xray':'🔍','Allure':'📊','JUnit XML':'📋','pCloudy':'📱',
       'Cline Skills':'🤖','AI-DLC':'🧠','Jira + Figma MCP':'🔌',
+      'AWS Bedrock':'☁️',
     };
     document.querySelectorAll('.tag').forEach(tag=>{
       const text=tag.textContent.trim();
@@ -583,7 +584,7 @@
         const img=document.createElement('img');
         img.src=`https://cdn.simpleicons.org/${slug}`;
         img.width=15; img.height=15; img.loading='lazy';
-        img.onerror=()=>img.remove();
+        img.onerror=()=>{img.remove();if(emojiMap[text]){const em=document.createElement('span');em.textContent=emojiMap[text];em.style.cssText='font-size:12px;line-height:1;flex-shrink:0';em.setAttribute('aria-hidden','true');tag.prepend(em);}};
         tag.prepend(img);
       } else if(emojiMap[text]){
         const em=document.createElement('span');
